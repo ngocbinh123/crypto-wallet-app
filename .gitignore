@@ -83,3 +83,9 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+cryptowallet/.idea/.gitignore
+cryptowallet/.idea/compiler.xml
+cryptowallet/.idea/gradle.xml
+cryptowallet/.idea/jarRepositories.xml
+cryptowallet/.idea/misc.xml
+cryptowallet/.idea/runConfigurations.xml
