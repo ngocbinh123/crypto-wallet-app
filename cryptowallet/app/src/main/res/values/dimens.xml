@@ -1,50 +1,17 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-
     <dimen name="marginXXS">2dp</dimen>
     <dimen name="marginLS">4dp</dimen>
     <dimen name="marginS">8dp</dimen>
-    <dimen name="marginXM">12dp</dimen>
     <dimen name="marginM">16dp</dimen>
     <dimen name="marginL">24dp</dimen>
     <dimen name="marginXL">32dp</dimen>
-    <dimen name="marginXXL">40dp</dimen>
-    <dimen name="marginXXXL">50dp</dimen>
-    <dimen name="margin4XL">86dp</dimen>
 
-    <dimen name="paddingXXS">2dp</dimen>
-    <dimen name="paddingLS">4dp</dimen>
-    <dimen name="paddingXS">8dp</dimen>
-    <dimen name="paddingS">10dp</dimen>
-    <dimen name="paddingXM">12dp</dimen>
-    <dimen name="paddingM">16dp</dimen>
-    <dimen name="paddingL">24dp</dimen>
-    <dimen name="paddingXL">32dp</dimen>
-    <dimen name="paddingXXL">40dp</dimen>
-    <dimen name="paddingXXXL">50dp</dimen>
-
-    <dimen name="textXS">8sp</dimen>
-    <dimen name="textS">10sp</dimen>
     <dimen name="textXM">13sp</dimen>
-    <dimen name="textLM">14sp</dimen>
     <dimen name="textM">16sp</dimen>
-    <dimen name="textML">18sp</dimen>
     <dimen name="textMLL">20sp</dimen>
-    <dimen name="textL">24sp</dimen>
-    <dimen name="textLL">26sp</dimen>
-    <dimen name="textLLL">28sp</dimen>
-    <dimen name="textXL">32sp</dimen>
-    <dimen name="textXXL">40sp</dimen>
 
-    <dimen name="sizeIconM">16dp</dimen>
-    <dimen name="sizeIconXL">32dp</dimen>
     <dimen name="sizeIconXXL">60dp</dimen>
-    <dimen name="sizeIconXXXL">72dp</dimen>
 
-    <dimen name="radiusXXS">2dp</dimen>
     <dimen name="radiusXS">4dp</dimen>
-    <dimen name="radiusS">8dp</dimen>
     <dimen name="cardElevation">4dp</dimen>
 </resources>

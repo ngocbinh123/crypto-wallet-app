@@ -3,4 +3,6 @@
 	<string name="sell_price">Sell Price</string>
 	<string name="buy_price">Buy Price</string>
 	<string name="you_are_offline">You are offline</string>
+	<string name="search">Search</string>
+	<string name="search_price_name">Search price by name</string>
 </resources>

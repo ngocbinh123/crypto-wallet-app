@@ -6,12 +6,13 @@
 		<item name="colorPrimaryVariant">@color/primaryDarkColor</item>
 		<item name="colorOnPrimary">@color/white</item>
 		<!-- Secondary brand color. -->
-		<item name="colorSecondary">@color/primaryColor</item>
-		<item name="colorSecondaryVariant">@color/primaryDarkColor</item>
-		<item name="colorOnSecondary">@color/black</item>
+		<item name="colorSecondary">@color/secondColor</item>
+		<item name="colorSecondaryVariant">@color/secondDarkColor</item>
+		<item name="colorOnSecondary">@color/white</item>
 		<!-- Status bar color. -->
 		<item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 		<!-- Customize your theme here. -->
+		<item name="android:windowBackground">@drawable/splash</item>
 	</style>
 
 	<style name="Theme.Crypto.NoActionBar">
@@ -33,23 +34,16 @@
 		<item name="android:textSize">@dimen/textMLL</item>
 	</style>
 
-<!--	<style name="Theme.Crypto.TextView.H5">-->
-<!--		<item name="android:textSize">@dimen/textL</item>-->
-<!--	</style>-->
-
-<!--	<style name="Theme.Crypto.TextView.H4">-->
-<!--		<item name="android:textSize">@dimen/textXL</item>-->
-<!--	</style>-->
-
 	<style name="Theme.Crypto.TextView.SubTitle1">
 		<item name="android:textSize">@dimen/textM</item>
 		<item name="android:textColor">@color/grayText</item>
 	</style>
 
-<!--	<style name="Theme.Crypto.TextView.SubTitle2">-->
-<!--		<item name="android:textSize">@dimen/textM</item>-->
-<!--		<item name="android:textColor">@color/grayText</item>-->
-<!--	</style>-->
+
+	<style name="Theme.Crypto.TextView.Price">
+		<item name="android:textSize">@dimen/textMLL</item>
+		<item name="android:textColor">@color/primaryDarkColor</item>
+	</style>
 
 	<style name="Theme.Crypto.TextView.Label">
 		<item name="android:textColor">@color/grayText</item>

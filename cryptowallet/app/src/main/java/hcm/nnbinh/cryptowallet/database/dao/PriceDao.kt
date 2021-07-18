@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import hcm.nnbinh.cryptowallet.database.entity.Price
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PriceDao {
@@ -15,8 +16,8 @@ interface PriceDao {
 	@Query("DELETE FROM Price")
 	fun deleteAll()
 	
-	@Query("SELECT * FROM PRICE")
-	fun getAllLive() :LiveData<List<Price>>
+	@Query("SELECT * FROM PRICE WHERE name LIKE :query")
+	fun getPricesFlow(query: String) : Flow<List<Price>>
 	
 	@Query("SELECT * FROM PRICE WHERE base = :base AND name = :name")
 	fun getPriceLive(base: String, name: String): LiveData<Price>
