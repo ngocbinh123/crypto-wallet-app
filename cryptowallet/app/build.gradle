@@ -2,6 +2,7 @@ plugins {
   id 'com.android.application'
   id 'kotlin-android'
   id 'kotlin-kapt'
+  id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -55,6 +56,9 @@ dependencies {
   api "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}"
   api "androidx.fragment:fragment-ktx:${versions.fragment}"
   api "androidx.activity:activity-ktx:${versions.activity}"
+
+  api "androidx.navigation:navigation-fragment-ktx:${versions.navigation}"
+  api "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
 
   // for Coroutine
   api "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
