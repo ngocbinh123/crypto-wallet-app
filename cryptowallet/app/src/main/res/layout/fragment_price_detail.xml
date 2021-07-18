@@ -11,6 +11,7 @@
 	<androidx.constraintlayout.widget.ConstraintLayout
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
+			android:background="@color/white"
 			>
 		<androidx.constraintlayout.widget.Guideline
 				android:id="@+id/line_ver_start"
@@ -104,11 +105,10 @@
 				android:id="@+id/txt_sell_price_value"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				style="@style/Theme.Crypto.TextView.H6"
-				android:textColor="@color/primaryDarkColor"
+				style="@style/Theme.Crypto.TextView.Price"
 				android:layout_marginTop="@dimen/marginL"
 				tools:text="$440.994"
-				android:text='@{"$" + item.sellPrice}'
+				app:price="@{item.sellPrice}"
 				app:layout_constraintTop_toBottomOf="@id/lout_price_top"
 				app:layout_constraintStart_toStartOf="@id/line_ver_start"
 				app:layout_constraintEnd_toEndOf="@id/line_ver_center"
@@ -119,7 +119,7 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				style="@style/Theme.Crypto.TextView.Label"
-				android:layout_marginTop="@dimen/marginLS"
+				android:layout_marginTop="@dimen/marginXXS"
 				android:text="@string/sell_price"
 				app:layout_constraintTop_toBottomOf="@id/txt_sell_price_value"
 				app:layout_constraintStart_toStartOf="@id/line_ver_start"
@@ -130,10 +130,9 @@
 				android:id="@+id/txt_buy_price_value"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				style="@style/Theme.Crypto.TextView.H6"
-				android:textColor="@color/primaryDarkColor"
+				style="@style/Theme.Crypto.TextView.Price"
 				tools:text="$450.766"
-				android:text='@{"$" + item.buyPrice}'
+				app:price="@{item.buyPrice}"
 				app:layout_constraintTop_toTopOf="@id/txt_sell_price_value"
 				app:layout_constraintStart_toStartOf="@id/line_ver_center"
 				app:layout_constraintEnd_toEndOf="@id/line_ver_end"
