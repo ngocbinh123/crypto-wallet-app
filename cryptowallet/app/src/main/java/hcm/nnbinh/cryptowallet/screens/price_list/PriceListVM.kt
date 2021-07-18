@@ -1,12 +1,13 @@
-package hcm.nnbinh.cryptowallet.screens.main
+package hcm.nnbinh.cryptowallet.screens.price_list
 
 import androidx.lifecycle.viewModelScope
-import hcm.nnbinh.cryptowallet.base.BaseActivityVM
+import hcm.nnbinh.cryptowallet.base.BaseVM
 import hcm.nnbinh.cryptowallet.objects.Command
 import hcm.nnbinh.cryptowallet.repo.PriceRepo
 import kotlinx.coroutines.launch
 
-class MainVM(private val priceRepo: PriceRepo) : BaseActivityVM() {
+class PriceListVM(private val priceRepo: PriceRepo) : BaseVM() {
+	internal val priceList = priceRepo.getAllLive()
 	internal fun startGetRemotePriceList() {
 		viewModelScope.launch(dispatcherIO) {
 			try {

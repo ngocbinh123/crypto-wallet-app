@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:id="@+id/nav_main"
+		app:startDestination="@id/priceListFragment">
+
+	<fragment
+			android:id="@+id/priceListFragment"
+			android:name="hcm.nnbinh.cryptowallet.screens.price_list.PriceListFragment"
+			android:label="PriceListFragment"
+			tools:layout="@layout/fragment_price_list"
+			>
+		<action
+				android:id="@+id/action_priceListFragment_to_priceDetailFragment"
+				app:destination="@id/priceDetailFragment"
+				app:enterAnim="@anim/slide_in_right"
+				app:exitAnim="@anim/slide_out_left"
+				app:popEnterAnim="@anim/slide_in_left"
+				app:popExitAnim="@anim/slide_out_right"
+				/>
+	</fragment>
+	<fragment
+			android:id="@+id/priceDetailFragment"
+			android:name="hcm.nnbinh.cryptowallet.screens.price_detail.PriceDetailFragment"
+			android:label="PriceDetailFragment"
+			tools:layout="@layout/fragment_price_detail"
+			>
+		<action
+				android:id="@+id/action_priceDetailFragment_to_priceListFragment"
+				app:destination="@id/priceListFragment"
+				app:enterAnim="@anim/slide_in_left"
+				app:exitAnim="@anim/slide_out_right"
+				app:popEnterAnim="@anim/slide_in_right"
+				app:popExitAnim="@anim/slide_out_left"
+				/>
+		<argument android:name="base"
+				app:argType="string"/>
+		<argument
+				android:name="name"
+				app:argType="string" />
+	</fragment>
+</navigation>

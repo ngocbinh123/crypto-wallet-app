@@ -17,4 +17,7 @@ interface PriceDao {
 	
 	@Query("SELECT * FROM PRICE")
 	fun getAllLive() :LiveData<List<Price>>
+	
+	@Query("SELECT * FROM PRICE WHERE base = :base AND name = :name")
+	fun getPriceLive(base: String, name: String): LiveData<Price>
 }

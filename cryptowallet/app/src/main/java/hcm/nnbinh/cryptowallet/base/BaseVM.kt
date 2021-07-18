@@ -8,7 +8,7 @@ import hcm.nnbinh.cryptowallet.objects.SingleLiveEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-abstract class BaseActivityVM : ViewModel() {
+abstract class BaseVM : ViewModel() {
 	protected val dispatcherIO by lazy {  Dispatchers.IO }
 	protected val dispatcherMain by lazy {  Dispatchers.Main }
 	private val _command by lazy { SingleLiveEvent<Command>() }
