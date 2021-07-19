@@ -5,6 +5,7 @@ import android.net.ConnectivityManager
 import android.net.ConnectivityManager.NetworkCallback
 import android.net.Network
 import android.net.NetworkCapabilities
+import android.net.NetworkInfo
 import android.net.NetworkRequest.Builder
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
@@ -27,4 +28,9 @@ fun Context.networkAvailableFlow(): Flow<Boolean> = callbackFlow {
 		build()
 	}, callback)
 	awaitClose { manager.unregisterNetworkCallback(callback) }
+}
+
+fun Context.isOnline(): Boolean {
+	val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+	return cm.isDefaultNetworkActive
 }

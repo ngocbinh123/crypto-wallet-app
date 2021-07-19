@@ -12,7 +12,7 @@
 	<com.google.android.material.card.MaterialCardView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			card_view:cardCornerRadius="@dimen/radiusS"
+			card_view:cardCornerRadius="@dimen/radiusXS"
 			android:elevation="@dimen/cardElevation"
 			android:layout_marginLeft="@dimen/marginM"
 			android:layout_marginRight="@dimen/marginM"
@@ -24,7 +24,7 @@
 		<androidx.constraintlayout.widget.ConstraintLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:padding="@dimen/paddingM"
+				android:padding="@dimen/marginM"
 				>
 			<androidx.constraintlayout.widget.Guideline
 					android:id="@+id/line_ver_center"
@@ -44,14 +44,15 @@
 					/>
 			<TextView
 					android:id="@+id/txt_name"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					style="@style/Theme.Crypto.TextView.H6"
-					android:text="@{item.name}"
-					tools:text="Name"
 					android:layout_marginStart="@dimen/marginS"
-					app:layout_constraintTop_toTopOf="@id/iv_icon"
+					android:text="@{item.name}"
+					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toEndOf="@id/iv_icon"
+					app:layout_constraintTop_toTopOf="@id/iv_icon"
+					tools:text="Name"
+					style="@style/Theme.Crypto.TextView.H6"
 					/>
 			<TextView
 					android:layout_width="wrap_content"

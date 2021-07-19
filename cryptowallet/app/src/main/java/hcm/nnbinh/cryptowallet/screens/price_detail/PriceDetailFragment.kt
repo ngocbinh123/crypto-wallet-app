@@ -23,6 +23,7 @@ class PriceDetailFragment : BaseFragment() {
 		savedInstanceState: Bundle?
 	): View {
 		binding = FragmentPriceDetailBinding.inflate(inflater, container, false)
+		binding.viewModel = detailVM
 		binding.lifecycleOwner = this
 		return binding.root
 	}
@@ -32,9 +33,5 @@ class PriceDetailFragment : BaseFragment() {
 	}
 	
 	override fun setupObservers() {
-		detailVM.selectedPrice.observe(this) { price ->
-			binding.toolbar.title = price.name
-			binding.item = price
-		}
 	}
 }

@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import hcm.nnbinh.cryptowallet.database.entity.Price
 import kotlinx.coroutines.flow.Flow
 
@@ -16,9 +17,18 @@ interface PriceDao {
 	@Query("DELETE FROM Price")
 	fun deleteAll()
 	
+	@Query("SELECT * FROM PRICE")
+	fun getAllPrices(): List<Price>
+	
 	@Query("SELECT * FROM PRICE WHERE name LIKE :query")
-	fun getPricesFlow(query: String) : Flow<List<Price>>
+	fun getPricesFlow(query: String): Flow<List<Price>>
 	
 	@Query("SELECT * FROM PRICE WHERE base = :base AND name = :name")
-	fun getPriceLive(base: String, name: String): LiveData<Price>
+	fun getPriceLive(base: String, name: String): LiveData<Price?>
+	
+	@Transaction
+	fun deleteAndInsertAll(remoteList: List<Price>) {
+		deleteAll()
+		insert(*remoteList.toTypedArray())
+	}
 }

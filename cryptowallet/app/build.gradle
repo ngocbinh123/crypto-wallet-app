@@ -83,10 +83,8 @@ dependencies {
 
   // for koin
   api "io.insert-koin:koin-core:${versions.koin}"
-//  api "io.insert-koin:koin-androidx-compose:${versions.koin}"
   api "io.insert-koin:koin-android:${versions.koin}"
-//  api "io.insert-koin:koin-android-viewmodel:${versions.koin}"
 
-  // stetho
+  // for stetho
   implementation 'com.facebook.stetho:stetho:1.5.1'
 }
