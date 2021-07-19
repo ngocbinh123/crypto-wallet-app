@@ -4,5 +4,5 @@ import hcm.nnbinh.cryptowallet.base.BaseVM
 import hcm.nnbinh.cryptowallet.repo.PriceRepo
 
 class PriceDetailVM(priceRepo: PriceRepo, base: String, name: String) : BaseVM() {
-	val selectedPrice = priceRepo.getPrice(base, name)
+	val price = priceRepo.getPrice(base, name)
 }

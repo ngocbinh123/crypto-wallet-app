@@ -4,8 +4,8 @@
 		xmlns:app="http://schemas.android.com/apk/res-auto">
 	<data>
 		<variable
-				name="item"
-				type="hcm.nnbinh.cryptowallet.database.entity.Price"
+				name="viewModel"
+				type="hcm.nnbinh.cryptowallet.screens.price_detail.PriceDetailVM"
 				/>
 	</data>
 	<androidx.constraintlayout.widget.ConstraintLayout
@@ -52,6 +52,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="?attr/actionBarSize"
 					android:background="?attr/colorPrimary"
+					app:title="@{viewModel.price.name}"
 					app:popupTheme="@style/Theme.Crypto.PopupOverlay"
 					/>
 
@@ -62,21 +63,22 @@
 				android:layout_width="@dimen/sizeIconXXL"
 				android:layout_height="@dimen/sizeIconXXL"
 				android:layout_marginTop="@dimen/marginXL"
-				app:iconUrl="@{item.icon}"
+				app:iconUrl="@{viewModel.price.icon}"
 				app:layout_constraintStart_toStartOf="@id/line_ver_start"
 				app:layout_constraintTop_toBottomOf="@id/lout_bar"
 				/>
 
 		<TextView
 				android:id="@+id/txt_name"
-				android:layout_width="wrap_content"
+				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				style="@style/Theme.Crypto.TextView.H6"
-				android:text="@{item.name}"
-				tools:text="Name"
 				android:layout_marginStart="@dimen/marginS"
-				app:layout_constraintTop_toTopOf="@id/iv_icon"
+				android:text="@{viewModel.price.name}"
+				app:layout_constraintEnd_toStartOf="@+id/line_ver_end"
 				app:layout_constraintStart_toEndOf="@id/iv_icon"
+				app:layout_constraintTop_toTopOf="@id/iv_icon"
+				tools:text="Name"
+				style="@style/Theme.Crypto.TextView.H6"
 				/>
 
 		<TextView
@@ -84,7 +86,7 @@
 				android:layout_height="wrap_content"
 				style="@style/Theme.Crypto.TextView.SubTitle1"
 				android:layout_marginTop="@dimen/marginLS"
-				android:text="@{item.base}"
+				android:text="@{viewModel.price.base}"
 				tools:text="Base"
 				app:layout_constraintTop_toBottomOf="@id/txt_name"
 				app:layout_constraintStart_toStartOf="@id/txt_name"
@@ -108,7 +110,7 @@
 				style="@style/Theme.Crypto.TextView.Price"
 				android:layout_marginTop="@dimen/marginL"
 				tools:text="$440.994"
-				app:price="@{item.sellPrice}"
+				app:price="@{viewModel.price.sellPrice}"
 				app:layout_constraintTop_toBottomOf="@id/lout_price_top"
 				app:layout_constraintStart_toStartOf="@id/line_ver_start"
 				app:layout_constraintEnd_toEndOf="@id/line_ver_center"
@@ -132,7 +134,7 @@
 				android:layout_height="wrap_content"
 				style="@style/Theme.Crypto.TextView.Price"
 				tools:text="$450.766"
-				app:price="@{item.buyPrice}"
+				app:price="@{viewModel.price.buyPrice}"
 				app:layout_constraintTop_toTopOf="@id/txt_sell_price_value"
 				app:layout_constraintStart_toStartOf="@id/line_ver_center"
 				app:layout_constraintEnd_toEndOf="@id/line_ver_end"

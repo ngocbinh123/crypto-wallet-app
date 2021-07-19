@@ -8,14 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
-import androidx.lifecycle.lifecycleScope
 import hcm.nnbinh.cryptowallet.R
 import hcm.nnbinh.cryptowallet.base.BaseActivity
 import hcm.nnbinh.cryptowallet.base.BaseFragment
 import hcm.nnbinh.cryptowallet.databinding.FragmentPriceListBinding
-import hcm.nnbinh.cryptowallet.helper.networkAvailableFlow
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -36,13 +33,6 @@ class PriceListFragment : BaseFragment(), OnQueryTextListener {
 	): View {
 		binding = FragmentPriceListBinding.inflate(inflater, container, false)
 		binding.lifecycleOwner = this
-		
-		lifecycleScope.launchWhenResumed {
-			requireContext().networkAvailableFlow().collect {
-				priceListVM.onNetworkStatusChange(it)
-			}
-		}
-		priceListVM.startGetRemotePriceList()
 		return binding.root
 	}
 	
