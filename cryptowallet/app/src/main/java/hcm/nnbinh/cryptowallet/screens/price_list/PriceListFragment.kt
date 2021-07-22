@@ -52,9 +52,6 @@ class PriceListFragment : BaseFragment(), OnQueryTextListener {
 	}
 	
 	override fun setupObservers() {
-		priceListVM.getCommand().observe(this) { cmd ->
-			processCommand(cmd)
-		}
 		priceListVM.displayPriceList.observe(this) { newList ->
 			(binding.rcvPrices.adapter as PriceListAdapter).submitList(newList)
 		}

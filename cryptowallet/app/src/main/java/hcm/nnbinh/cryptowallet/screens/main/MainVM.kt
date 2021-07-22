@@ -31,6 +31,7 @@ class MainVM(private val getRemotePricesUseCase: GetRemotePriceListUseCase) : Ba
 			try {
 				getRemotePricesUseCase.getAndSaveRemotePriceList()
 			} catch (e: Exception) {
+				e.printStackTrace()
 				setCommand(Command.ShowError(e))
 			}
 		}
