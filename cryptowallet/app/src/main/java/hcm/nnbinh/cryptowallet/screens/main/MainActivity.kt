@@ -25,6 +25,8 @@ class MainActivity : BaseActivity() {
 				mainVM.startOrStopGetPriceListSchedule(isOnline)
 			}
 		}
+		
+		mainVM.getCommand().observe(this) { cmd -> processCommand(cmd)}
 	}
 	
 	override fun onRestart() {
