@@ -7,6 +7,7 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.scope.Scope
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -16,7 +17,7 @@ import java.util.concurrent.TimeUnit
 private const val TIMEOUT_DURATION = 30L
 
 val retrofitModule = module {
-	single { Cache(androidApplication().cacheDir, 10L * 1024 * 1024) }
+	single { Cache(androidContext().cacheDir, 10L * 1024 * 1024) }
 	single { GsonBuilder().create() }
 	single { retrofitHttpClient() }
 	single { retrofitBuilder() }
