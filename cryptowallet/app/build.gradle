@@ -40,6 +40,10 @@ android {
   kotlinOptions {
     jvmTarget = '1.8'
   }
+  packagingOptions {
+    excludes += "/META-INF/AL2.0"
+    excludes += "/META-INF/LGPL2.1"
+  }
 }
 
 dependencies {
@@ -48,12 +52,15 @@ dependencies {
   implementation 'androidx.appcompat:appcompat:1.3.0'
   implementation 'com.google.android.material:material:1.4.0'
   implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-  testImplementation 'junit:junit:4.+'
-  androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+  // Koin testing tools
+  androidTestImplementation "io.insert-koin:koin-test:${versions.koin}"
+  // Needed JUnit version
+  androidTestImplementation "io.insert-koin:koin-test-junit4:${versions.koin}"
 
   api "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle}"
   api "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}"
+  api "androidx.fragment:fragment-ktx:${versions.fragment}"
   api "androidx.fragment:fragment-ktx:${versions.fragment}"
   api "androidx.activity:activity-ktx:${versions.activity}"
 
@@ -87,4 +94,12 @@ dependencies {
 
   // for stetho
   implementation 'com.facebook.stetho:stetho:1.5.1'
+
+//  testing
+  testImplementation 'junit:junit:4.13.2'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+  androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2'
+  androidTestImplementation 'androidx.arch.core:core-testing:2.1.0'
 }
