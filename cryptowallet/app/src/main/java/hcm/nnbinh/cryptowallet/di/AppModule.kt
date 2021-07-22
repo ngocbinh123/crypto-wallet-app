@@ -5,5 +5,6 @@ val appModules = listOf(
 	retrofitModule,
 	apiModule,
 	repoModule,
-	databaseModule
+	databaseModule,
+	useCaseModule
 )

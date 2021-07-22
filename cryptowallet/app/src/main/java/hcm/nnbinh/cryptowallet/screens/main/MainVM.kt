@@ -3,13 +3,13 @@ package hcm.nnbinh.cryptowallet.screens.main
 import androidx.lifecycle.viewModelScope
 import hcm.nnbinh.cryptowallet.base.BaseVM
 import hcm.nnbinh.cryptowallet.objects.Command
-import hcm.nnbinh.cryptowallet.repo.PriceRepo
+import hcm.nnbinh.cryptowallet.usecase.GetRemotePriceListUseCase
 import kotlinx.coroutines.launch
 import java.util.Timer
 import kotlin.concurrent.schedule
 
-class MainVM(private val priceRepo: PriceRepo) : BaseVM() {
-	private var scheduleTime = Timer()
+class MainVM(private val getRemotePricesUseCase: GetRemotePriceListUseCase) : BaseVM() {
+	private var _scheduleTime = Timer()
 	
 	override fun onCleared() {
 		startOrStopGetPriceListSchedule(false)
@@ -17,10 +17,10 @@ class MainVM(private val priceRepo: PriceRepo) : BaseVM() {
 	}
 	
 	internal fun startOrStopGetPriceListSchedule(isStart: Boolean) {
-		scheduleTime.cancel()
+		_scheduleTime.cancel()
 		if (isStart) {
-			scheduleTime = Timer()
-			scheduleTime.schedule(0, 30000) {
+			_scheduleTime = Timer()
+			_scheduleTime.schedule(0, 30000) {
 				startGetRemotePriceList()
 			}.run()
 		}
@@ -29,11 +29,8 @@ class MainVM(private val priceRepo: PriceRepo) : BaseVM() {
 	private fun startGetRemotePriceList() {
 		viewModelScope.launch(dispatcherIO) {
 			try {
-				val response = priceRepo.getRemotePriceList()
-				val newPrices = response.data.map { it.toPriceEntity() }
-				priceRepo.deleteAndInsertAll(newPrices)
+				getRemotePricesUseCase.getAndSaveRemotePriceList()
 			} catch (e: Exception) {
-				e.printStackTrace()
 				setCommand(Command.ShowError(e))
 			}
 		}

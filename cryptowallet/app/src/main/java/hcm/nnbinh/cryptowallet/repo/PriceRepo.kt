@@ -7,5 +7,5 @@ class PriceRepo : BaseRepo() {
 	suspend fun getRemotePriceList() = apiService.getAllPrices()
 	fun deleteAndInsertAll(items: List<Price>) = db.getPriceDao().deleteAndInsertAll(items)
 	fun getPriceListFlow(word: String) = db.getPriceDao().getPricesFlow("%$word%")
-	fun getPrice(base: String, name: String) = db.getPriceDao().getPriceLive(base, name)
+	fun getPriceLive(base: String, name: String) = db.getPriceDao().getPriceLive(base, name)
 }
