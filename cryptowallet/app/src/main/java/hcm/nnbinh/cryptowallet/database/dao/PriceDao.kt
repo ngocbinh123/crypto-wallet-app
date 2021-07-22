@@ -17,9 +17,6 @@ interface PriceDao {
 	@Query("DELETE FROM Price")
 	fun deleteAll()
 	
-	@Query("SELECT * FROM PRICE")
-	fun getAllPrices(): List<Price>
-	
 	@Query("SELECT * FROM PRICE WHERE name LIKE :query")
 	fun getPricesFlow(query: String): Flow<List<Price>>
 	

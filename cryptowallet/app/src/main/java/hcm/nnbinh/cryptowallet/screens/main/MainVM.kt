@@ -20,7 +20,7 @@ class MainVM(private val priceRepo: PriceRepo) : BaseVM() {
 		scheduleTime.cancel()
 		if (isStart) {
 			scheduleTime = Timer()
-			scheduleTime.schedule(0, 5000) {
+			scheduleTime.schedule(0, 30000) {
 				startGetRemotePriceList()
 			}.run()
 		}

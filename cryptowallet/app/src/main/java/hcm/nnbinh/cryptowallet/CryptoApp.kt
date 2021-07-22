@@ -2,15 +2,12 @@ package hcm.nnbinh.cryptowallet
 
 import android.app.Application
 import com.facebook.stetho.Stetho
-import hcm.nnbinh.cryptowallet.di.apiModule
-import hcm.nnbinh.cryptowallet.di.databaseModule
-import hcm.nnbinh.cryptowallet.di.repoModule
-import hcm.nnbinh.cryptowallet.di.retrofitModule
-import hcm.nnbinh.cryptowallet.di.viewModelModule
+import hcm.nnbinh.cryptowallet.di.appModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
-import org.koin.core.logger.Level
+import org.koin.core.logger.Level.DEBUG
+import org.koin.core.logger.Level.NONE
 
 class CryptoApp : Application() {
 	override fun onCreate() {
@@ -23,17 +20,9 @@ class CryptoApp : Application() {
 	
 	private fun setupKoin() {
 		startKoin {
-			androidLogger(Level.DEBUG)
+			androidLogger(if (BuildConfig.DEBUG) DEBUG else NONE)
 			androidContext(this@CryptoApp)
-			modules(
-				listOf(
-					viewModelModule,
-					retrofitModule,
-					apiModule,
-					repoModule,
-					databaseModule
-				)
-			)
+			modules(appModules)
 		}
 	}
 }
