@@ -1,5 +1,6 @@
 package hcm.nnbinh.cryptowallet.di
 
+import hcm.nnbinh.cryptowallet.usecase.CRUDPriceUseCase
 import hcm.nnbinh.cryptowallet.usecase.GetLocalPriceUseCase
 import hcm.nnbinh.cryptowallet.usecase.GetRemotePriceListUseCase
 import hcm.nnbinh.cryptowallet.usecase.SearchPriceUseCase
@@ -9,4 +10,5 @@ val useCaseModule = module {
 	single { GetRemotePriceListUseCase() }
 	single { SearchPriceUseCase() }
 	single { GetLocalPriceUseCase() }
+	single { CRUDPriceUseCase() }
 }

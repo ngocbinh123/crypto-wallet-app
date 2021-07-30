@@ -8,6 +8,6 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
 	viewModel { MainVM(get()) }
-	viewModel { PriceListVM(get()) }
+	viewModel { PriceListVM(get(), get()) }
 	viewModel { (base: String, name: String) -> PriceDetailVM(get(), base, name) }
 }

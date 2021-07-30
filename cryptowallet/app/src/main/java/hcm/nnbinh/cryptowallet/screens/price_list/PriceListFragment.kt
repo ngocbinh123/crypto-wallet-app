@@ -48,7 +48,7 @@ class PriceListFragment : BaseFragment(), OnQueryTextListener {
 	
 	override fun setupViews() {
 		(requireActivity() as BaseActivity).setupActionBar(binding.toolbar, false)
-		binding.rcvPrices.adapter = PriceListAdapter()
+		binding.rcvPrices.adapter = PriceListAdapter(priceListVM)
 	}
 	
 	override fun setupObservers() {

@@ -10,6 +10,8 @@
     <dimen name="textM">16sp</dimen>
     <dimen name="textMLL">20sp</dimen>
 
+    <dimen name="sizeIconL">32dp</dimen>
+    <dimen name="sizeIconXL">48dp</dimen>
     <dimen name="sizeIconXXL">60dp</dimen>
 
     <dimen name="radiusXS">4dp</dimen>

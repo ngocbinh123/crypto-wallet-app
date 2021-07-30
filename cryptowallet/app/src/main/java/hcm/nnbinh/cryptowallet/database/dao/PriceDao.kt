@@ -28,4 +28,7 @@ interface PriceDao {
 		deleteAll()
 		insert(*remoteList.toTypedArray())
 	}
+	
+	@Query("UPDATE Price SET is_bookmark = :isBookmark WHERE base = :base AND name = :name")
+	fun updateBookMark(base: String, name: String, isBookmark: Boolean)
 }
