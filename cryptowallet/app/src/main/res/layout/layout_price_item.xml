@@ -135,6 +135,16 @@
 					app:layout_constraintBottom_toBottomOf="@id/txt_sell_price_label"
 					/>
 
+			<ImageView
+					android:id="@+id/iv_bookmark"
+					android:layout_width="@dimen/sizeIconL"
+					android:layout_height="@dimen/sizeIconL"
+					app:isBookmark="@{item.bookmark}"
+					tools:src="@drawable/ic_bookmark_active"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="@id/iv_icon"
+					/>
+
 		</androidx.constraintlayout.widget.ConstraintLayout>
 	</com.google.android.material.card.MaterialCardView>
 </layout>

@@ -20,15 +20,15 @@ abstract class BaseActivity : AppCompatActivity() {
 	@CallSuper
 	open fun processCommand(cmd: Command) {
 		when (cmd) {
-			is Command.ShowError -> handleError(cmd.e)
+			is Command.ShowError -> handleError(cmd.t)
 		}
 	}
 	
-	open fun handleError(e: Exception) {
-		val error = if (e is UnknownHostException) {
+	open fun handleError(t: Throwable) {
+		val error = if (t is UnknownHostException) {
 			getString(R.string.you_are_offline)
 		} else {
-			e.message ?: e.toString()
+			t.message ?: t.toString()
 		}
 		Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
 	}

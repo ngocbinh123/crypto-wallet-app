@@ -12,6 +12,7 @@ class PriceListDiffCallBack : DiffUtil.ItemCallback<Price>() {
 		return oldItem.sellPrice == oldItem.sellPrice &&
 				oldItem.buyPrice == newItem.buyPrice &&
 				oldItem.icon == newItem.icon &&
-				oldItem.counter == newItem.counter
+				oldItem.counter == newItem.counter &&
+				oldItem.bookmark == newItem.bookmark
 	}
 }

@@ -1,13 +1,16 @@
 package hcm.nnbinh.cryptowallet.screens.main
 
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import hcm.nnbinh.cryptowallet.R
 import hcm.nnbinh.cryptowallet.base.BaseActivity
 import hcm.nnbinh.cryptowallet.databinding.ActivityMainBinding
 import hcm.nnbinh.cryptowallet.helper.isOnline
 import hcm.nnbinh.cryptowallet.helper.networkAvailableFlow
+import hcm.nnbinh.cryptowallet.objects.Command.ShowHideLoadingBar
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,6 +22,7 @@ class MainActivity : BaseActivity() {
 		super.onCreate(savedInstanceState)
 		val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 		binding.lifecycleOwner = this
+		ViewTreeLifecycleOwner.set(window.decorView, this)
 		
 		lifecycleScope.launchWhenResumed {
 			networkAvailableFlow().collect { isOnline ->
@@ -26,7 +30,13 @@ class MainActivity : BaseActivity() {
 			}
 		}
 		
-		mainVM.getCommand().observe(this) { cmd -> processCommand(cmd)}
+		mainVM.getCommand().observe(this) { cmd ->
+			when (cmd) {
+				is ShowHideLoadingBar -> binding.progressCircular.visibility =
+					if (cmd.isShow) View.VISIBLE else View.GONE
+				else -> processCommand(cmd)
+			}
+		}
 	}
 	
 	override fun onRestart() {

@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 
 abstract class BaseVM : ViewModel() {
 	protected val dispatcherIO by lazy { Dispatchers.IO }
+	protected val dispatcherDefault by lazy { Dispatchers.Default }
 	protected val dispatcherMain by lazy { Dispatchers.Main }
 	private val _command by lazy { SingleLiveEvent<Command>() }
 	fun getCommand() = _command
